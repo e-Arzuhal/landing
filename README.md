@@ -20,6 +20,7 @@ e-Arzuhal tanıtım ve pazarlama sayfası.
 ```bash
 cd landing
 npm install
+cp .env.example .env
 npm run dev
 ```
 
@@ -46,6 +47,16 @@ GET  /api/landing/stats           Platform istatistikleri (kullanıcı sayısı 
 
 Bu endpoint'ler auth gerektirmez.
 
+Landing URL ayarları `.env` üzerinden yapılır:
+
+```env
+VITE_API_BASE_URL=http://localhost:8080
+VITE_APP_BASE_URL=http://localhost:3000
+```
+
+- `VITE_API_BASE_URL`: landing form ve istatistik endpoint'lerinin gideceği main-server adresi
+- `VITE_APP_BASE_URL`: landing üzerindeki `Giriş Yap` ve `Kayıt Ol` butonlarının yönleneceği frontend-web adresi
+
 ---
 
 ## Proje Yapısı
@@ -54,8 +65,8 @@ Bu endpoint'ler auth gerektirmez.
 landing/
 ├── src/
 │   ├── components/       # Hero, Features, Pricing, FAQ, Footer vb.
-│   ├── styles/           # Design tokens
-│   ├── services/         # api.service.js (main-server /api/landing/*)
+│   ├── config/           # urls.js (env tabanli URL ayarlari)
+│   ├── api.js            # main-server /api/landing/* cagrilari
 │   ├── App.jsx
 │   └── main.jsx
 ├── public/

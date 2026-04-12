@@ -1,8 +1,16 @@
 import AnimatedSection from './ui/AnimatedSection'
 
 const logos = [
-  'Akbank', 'Garanti BBVA', 'İş Bankası', 'Sabancı', 'Koç Holding',
-  'Turkcell', 'Vodafone TR', 'Enerjisa', 'Migros', 'Zorlu Holding',
+  'Kurumsal Müşteri',
+  'Hukuk Bürosu',
+  'Finans Kuruluşu',
+  'Sigorta Şirketi',
+  'Lojistik Firması',
+  'Perakende Şirketi',
+  'Teknoloji Firması',
+  'Üretim Şirketi',
+  'Danışmanlık Firması',
+  'E-Ticaret Şirketi',
 ]
 
 export default function TrustedBy() {

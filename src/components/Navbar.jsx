@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
-const APP_URL = 'http://localhost:3000'
+import { APP_LOGIN_URL, APP_REGISTER_URL } from '../config/urls'
 
 const navLinks = [
   { label: 'Ürünler',      href: '#features' },
@@ -76,7 +75,7 @@ export default function Navbar() {
         {/* CTA buttons */}
         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }} className="nav-ctas-desktop">
           <a
-            href={`${APP_URL}/login`}
+            href={APP_LOGIN_URL}
             style={{
               padding: '8px 18px',
               borderRadius: 10,
@@ -92,7 +91,7 @@ export default function Navbar() {
             Giriş Yap
           </a>
           <motion.a
-            href={APP_URL}
+            href={APP_REGISTER_URL}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             style={{
@@ -106,7 +105,7 @@ export default function Navbar() {
               boxShadow: '0 2px 8px rgba(15,26,48,0.2)',
             }}
           >
-            Hemen Başlayın
+            Kayıt Ol
           </motion.a>
         </div>
 
@@ -139,8 +138,8 @@ export default function Navbar() {
                 </a>
               ))}
               <div style={{ display: 'flex', gap: 10, marginTop: 12 }}>
-                <a href={`${APP_URL}/login`} style={{ flex: 1, textAlign: 'center', padding: '10px', borderRadius: 10, border: '1.5px solid var(--color-navy)', fontWeight: 600, color: 'var(--color-navy)', fontSize: 14 }}>Giriş Yap</a>
-                <a href={APP_URL} style={{ flex: 1, textAlign: 'center', padding: '10px', borderRadius: 10, background: 'var(--color-navy)', fontWeight: 600, color: '#fff', fontSize: 14 }}>Başlayın</a>
+                <a href={APP_LOGIN_URL} style={{ flex: 1, textAlign: 'center', padding: '10px', borderRadius: 10, border: '1.5px solid var(--color-navy)', fontWeight: 600, color: 'var(--color-navy)', fontSize: 14 }}>Giriş Yap</a>
+                <a href={APP_REGISTER_URL} style={{ flex: 1, textAlign: 'center', padding: '10px', borderRadius: 10, background: 'var(--color-navy)', fontWeight: 600, color: '#fff', fontSize: 14 }}>Kayıt Ol</a>
               </div>
             </div>
           </motion.div>

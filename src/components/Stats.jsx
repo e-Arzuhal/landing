@@ -25,18 +25,26 @@ function StatItem({ value, suffix, label, delay }) {
 }
 
 export default function Stats() {
-  const [stats, setStats] = useState({ totalUsers: 1200, totalContracts: 8400, uptimePercent: 99.9 })
+  const [stats, setStats] = useState(null)
 
   useEffect(() => {
-    getLandingStats().then(setStats).catch(() => {})
+    getLandingStats().then(setStats).catch(() => setStats(null))
   }, [])
 
-  const items = [
-    { value: stats.totalUsers,     suffix: '+',  label: 'Aktif Kullanıcı',    delay: 0 },
-    { value: stats.totalContracts, suffix: '+',  label: 'İşlenen Sözleşme',   delay: 0.1 },
-    { value: Math.round(stats.uptimePercent * 10), suffix: '%', label: 'Hizmet Sürekliliği', delay: 0.2 },
-    { value: 40,                   suffix: '%',  label: 'Verimlilik Artışı',  delay: 0.3 },
-  ]
+  if (!stats) return null
+
+  const items = []
+  if (typeof stats.totalUsers === 'number') {
+    items.push({ value: stats.totalUsers, suffix: '+', label: 'Aktif Kullanıcı', delay: 0 })
+  }
+  if (typeof stats.totalContracts === 'number') {
+    items.push({ value: stats.totalContracts, suffix: '+', label: 'İşlenen Sözleşme', delay: 0.1 })
+  }
+  if (typeof stats.uptimePercent === 'number') {
+    items.push({ value: Math.round(stats.uptimePercent * 10), suffix: '%', label: 'Hizmet Sürekliliği', delay: 0.2 })
+  }
+
+  if (items.length === 0) return null
 
   return (
     <section style={{ background: 'var(--color-navy)', padding: 'clamp(3rem,6vw,5rem) 0' }}>
