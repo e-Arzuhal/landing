@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import DemoForm from './DemoForm'
-
-const APP_URL = 'http://localhost:3000'
+import { APP_LOGIN_URL, APP_REGISTER_URL } from '../config/urls'
 
 const words = ['Geleceğin', 'Hukuk', 'Dünyasını', 'Bugün', 'Yönetin.']
 
@@ -71,7 +70,7 @@ export default function Hero() {
             color: '#9a6e28',
             textTransform: 'uppercase',
           }}>
-            ★ TÜRKİYE'NİN LİDER HUKUK TEKNOLOJİSİ
+            HUKUK SÜREÇLERİ İÇİN DİJİTAL PLATFORM
           </span>
         </motion.div>
 
@@ -114,8 +113,8 @@ export default function Hero() {
             lineHeight: 1.7,
           }}
         >
-          Operasyonel süreçlerinizi uçtan uca dijitalleştirin. Akıllı otomasyon ve
-          üst düzey güvenlik altyapısı ile verimliliği %40 artırın.
+          Sözleşme ve dilekçe süreçlerini tek bir noktadan yönetin.
+          İhtiyacınıza göre oluşturma, takip ve onay adımlarını kullanın.
         </motion.p>
 
         {/* CTA buttons */}
@@ -126,7 +125,7 @@ export default function Hero() {
           style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}
         >
           <motion.a
-            href={APP_URL}
+            href={APP_LOGIN_URL}
             whileHover={{ scale: 1.04, boxShadow: '0 8px 32px rgba(15,26,48,0.28)' }}
             whileTap={{ scale: 0.97 }}
             style={{
@@ -142,8 +141,27 @@ export default function Hero() {
               boxShadow: '0 4px 16px rgba(15,26,48,0.18)',
             }}
           >
-            Hemen Başlayın
+            Giriş Yap
             <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </motion.a>
+
+          <motion.a
+            href={APP_REGISTER_URL}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            style={{
+              padding: '14px 28px',
+              borderRadius: 12,
+              background: 'transparent',
+              color: 'var(--color-navy)',
+              fontWeight: 600,
+              fontSize: 16,
+              border: '1.5px solid var(--color-gray-200)',
+              display: 'inline-flex',
+              alignItems: 'center',
+            }}
+          >
+            Kayıt Ol
           </motion.a>
 
           <motion.button

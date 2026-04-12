@@ -1,5 +1,3 @@
-const APP_URL = 'http://localhost:3000'
-
 const sections = [
   {
     title: 'Ürün',
@@ -48,7 +46,7 @@ export default function Footer() {
               <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 16, color: 'var(--color-navy)' }}>E-ARZUHAL</span>
             </a>
             <p style={{ fontSize: 14, color: 'var(--color-text-muted)', lineHeight: 1.65, maxWidth: 220, marginBottom: '1.25rem' }}>
-              Hukuk teknolojisinde yeni nesil standartlar. Güvenli, verimli ve profesyonel hukuk yönetimi için tasarlandı.
+              Sözleşme ve dilekçe süreçlerini dijital ortamda yönetmek için geliştirilmiş platform.
             </p>
             <div style={{ display: 'flex', gap: 12 }}>
               {/* Social icons */}

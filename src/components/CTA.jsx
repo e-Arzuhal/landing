@@ -3,8 +3,7 @@ import { useState } from 'react'
 import AnimatedSection from './ui/AnimatedSection'
 import DemoForm from './DemoForm'
 import { subscribeNewsletter } from '../api'
-
-const APP_URL = 'http://localhost:3000'
+import { APP_LOGIN_URL, APP_REGISTER_URL } from '../config/urls'
 
 export default function CTA() {
   const [demoOpen, setDemoOpen] = useState(false)
@@ -66,10 +65,10 @@ export default function CTA() {
               marginBottom: '1rem',
               lineHeight: 1.1,
             }}>
-              Dijital dönüşüme bugün başlayın.
+              İhtiyacınıza uygun akışı seçin.
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 17, maxWidth: 500, margin: '0 auto 2.5rem', lineHeight: 1.65 }}>
-              E-Arzuhal ile hukuk departmanınızı bir üst seviyeye taşıyın. Kurumsal çözümlerimiz için ekibimizle görüşün.
+              Platformu inceleyebilir, giriş yapabilir veya yeni bir hesap oluşturabilirsiniz.
             </p>
 
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -89,11 +88,11 @@ export default function CTA() {
                   boxShadow: '0 4px 16px rgba(200,150,62,0.3)',
                 }}
               >
-                Satış Ekibiyle Görüş
+                Demo Talep Et
               </motion.button>
 
               <motion.a
-                href={APP_URL}
+                href={APP_LOGIN_URL}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 style={{
@@ -107,7 +106,25 @@ export default function CTA() {
                   display: 'inline-block',
                 }}
               >
-                Ücretsiz Başlayın
+                Giriş Yap
+              </motion.a>
+
+              <motion.a
+                href={APP_REGISTER_URL}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                style={{
+                  padding: '14px 32px',
+                  borderRadius: 12,
+                  background: 'transparent',
+                  color: '#fff',
+                  fontWeight: 600,
+                  fontSize: 16,
+                  border: '1.5px solid rgba(255,255,255,0.25)',
+                  display: 'inline-block',
+                }}
+              >
+                Kayıt Ol
               </motion.a>
             </div>
           </AnimatedSection>

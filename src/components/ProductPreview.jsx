@@ -93,15 +93,11 @@ export default function ProductPreview() {
                     </div>
                     {/* Stat cards */}
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
-                      {[
-                        { label: 'Aktif Sözleşme', value: '24', color: '#dbeafe' },
-                        { label: 'Onay Bekliyor',  value: '7',  color: '#fef9c3' },
-                        { label: 'Bu Ay İşlenen',  value: '41', color: '#dcfce7' },
-                      ].map(card => (
-                        <div key={card.label} style={{ background: '#fff', borderRadius: 12, padding: '1rem', border: '1px solid var(--color-gray-200)' }}>
-                          <div style={{ fontSize: 11, color: 'var(--color-gray-500)', marginBottom: 6 }}>{card.label}</div>
-                          <div style={{ fontSize: 22, fontWeight: 800, color: 'var(--color-navy)', fontFamily: 'var(--font-heading)' }}>{card.value}</div>
-                          <div style={{ height: 4, borderRadius: 2, background: card.color, marginTop: 8 }} />
+                      {['Özet 1', 'Özet 2', 'Özet 3'].map((label, i) => (
+                        <div key={label} style={{ background: '#fff', borderRadius: 12, padding: '1rem', border: '1px solid var(--color-gray-200)' }}>
+                          <div style={{ fontSize: 11, color: 'var(--color-gray-500)', marginBottom: 8 }}>{label}</div>
+                          <div style={{ height: 24, width: `${50 + i * 10}%`, borderRadius: 6, background: 'var(--color-gray-100)' }} />
+                          <div style={{ height: 4, borderRadius: 2, background: 'var(--color-gray-100)', marginTop: 10 }} />
                         </div>
                       ))}
                     </div>
