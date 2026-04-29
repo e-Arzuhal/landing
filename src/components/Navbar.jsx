@@ -1,17 +1,29 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { APP_LOGIN_URL, APP_REGISTER_URL } from '../config/urls'
+import LegalModal from './LegalModal'
 
 const navLinks = [
-  { label: 'Ürünler',      href: '#features' },
-  { label: 'Çözümler',     href: '#how-it-works' },
-  { label: 'Fiyatlandırma', href: '#demo' },
-  { label: 'Kurumsal',     href: '#demo' },
+  { label: 'Ürünler',       href: '#features' },
+  { label: 'Çözümler',      href: '#how-it-works' },
+  { label: 'Fiyatlandırma', href: '#pricing' },
+  { label: 'Kurumsal',      href: '#demo' },
 ]
+
+const handleSmoothScroll = (e, href) => {
+  if (!href || !href.startsWith('#')) return
+  const id = href.slice(1)
+  const el = document.getElementById(id)
+  if (el) {
+    e.preventDefault()
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [legalModal, setLegalModal] = useState(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -36,14 +48,19 @@ export default function Navbar() {
     <nav style={navStyle}>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
         {/* Logo */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-          <div style={{
-            width: 36, height: 36, borderRadius: 10,
-            background: 'var(--color-navy)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}>
-            <span style={{ color: 'var(--color-gold)', fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 18 }}>E</span>
-          </div>
+        <a
+          href="#top"
+          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+          style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}
+        >
+          <img
+            src="/e-Arzuhal-logo.png"
+            alt="e-Arzuhal"
+            width={36}
+            height={36}
+            style={{ borderRadius: 10, objectFit: 'contain', background: 'var(--color-navy)' }}
+            onError={(e) => { e.currentTarget.style.display = 'none' }}
+          />
           <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 18, color: 'var(--color-navy)', letterSpacing: '-0.01em' }}>
             E-ARZUHAL
           </span>
@@ -55,6 +72,7 @@ export default function Navbar() {
             <li key={link.label}>
               <a
                 href={link.href}
+                onClick={(e) => handleSmoothScroll(e, link.href)}
                 style={{
                   padding: '6px 14px',
                   borderRadius: 8,
@@ -133,7 +151,12 @@ export default function Navbar() {
           >
             <div className="container" style={{ paddingTop: '1rem', paddingBottom: '1.5rem', display: 'flex', flexDirection: 'column', gap: 8 }}>
               {navLinks.map(link => (
-                <a key={link.label} href={link.href} onClick={() => setMenuOpen(false)} style={{ padding: '10px 4px', fontSize: 16, fontWeight: 500, color: 'var(--color-navy)', borderBottom: '1px solid var(--color-gray-100)' }}>
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => { handleSmoothScroll(e, link.href); setMenuOpen(false) }}
+                  style={{ padding: '10px 4px', fontSize: 16, fontWeight: 500, color: 'var(--color-navy)', borderBottom: '1px solid var(--color-gray-100)' }}
+                >
                   {link.label}
                 </a>
               ))}
@@ -145,6 +168,8 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <LegalModal open={!!legalModal} type={legalModal} onClose={() => setLegalModal(null)} />
 
       <style>{`
         @media (max-width: 768px) {
