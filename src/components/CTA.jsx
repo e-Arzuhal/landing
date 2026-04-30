@@ -9,17 +9,20 @@ export default function CTA() {
   const [demoOpen, setDemoOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [subStatus, setSubStatus] = useState('idle')
+  const [subError, setSubError] = useState('')
 
   const handleNewsletter = async (e) => {
     e.preventDefault()
     if (!email) return
     setSubStatus('loading')
+    setSubError('')
     try {
       await subscribeNewsletter(email)
       setSubStatus('success')
       setEmail('')
-    } catch {
+    } catch (err) {
       setSubStatus('error')
+      setSubError(err?.message || 'Abonelik tamamlanamadı. Lütfen daha sonra tekrar deneyin.')
     }
   }
 
@@ -177,7 +180,11 @@ export default function CTA() {
               {subStatus === 'success' ? '✓ Abone Olundu' : subStatus === 'loading' ? '...' : 'Abone Ol'}
             </motion.button>
           </form>
-          {subStatus === 'error' && <p style={{ fontSize: 13, color: '#C0392B' }}>Bir hata oluştu.</p>}
+          {subStatus === 'error' && (
+            <p style={{ fontSize: 13, color: '#C0392B', maxWidth: 320 }}>
+              {subError || 'Abonelik tamamlanamadı. Lütfen daha sonra tekrar deneyin.'}
+            </p>
+          )}
         </div>
       </section>
 
