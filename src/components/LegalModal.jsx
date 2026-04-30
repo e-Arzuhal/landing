@@ -18,7 +18,7 @@ const CONTENT = {
       <p>e-Arzuhal Teknolojileri A.Ş. olarak 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında veri sorumlusuyuz.</p>
       <p><strong>İşlenen veriler:</strong> ad, soyad, e-posta, kullanıcı adı, telefon, IP, sözleşme içerikleri.</p>
       <p><strong>Amaç:</strong> hizmet sunumu, kullanıcı doğrulama, sözleşme imza süreçleri ve yasal yükümlülüklerin yerine getirilmesi.</p>
-      <p><strong>Haklarınız:</strong> verilerinize erişme, düzeltme, silme ve işlemeye itiraz etme haklarına sahipsiniz. Talepleriniz için <strong>kvkk@earzuhal.com</strong> adresine yazabilirsiniz.</p>
+      <p><strong>Haklarınız:</strong> verilerinize erişme, düzeltme, silme ve işlemeye itiraz etme haklarına sahipsiniz. Talepleriniz için <strong>earzuhal.sozlesme@gmail.com</strong> adresine yazabilirsiniz.</p>
     </>
   ),
   privacy: (
@@ -45,18 +45,18 @@ const CONTENT = {
     <>
       <p>TC Kimlik numaraları AES-256 ile şifrelenir, şifreler BCrypt ile hash'lenir.</p>
       <p>Tüm trafik HTTPS üzerinden taşınır. Sunucularımız Türkiye sınırları içinde barındırılır.</p>
-      <p>Güvenlik açığı bildirimleri için: <strong>security@earzuhal.com</strong></p>
+      <p>Güvenlik açığı bildirimleri için: <strong>earzuhal.sozlesme@gmail.com</strong></p>
     </>
   ),
   help: (
     <>
-      <p>Sorularınız için <strong>destek@earzuhal.com</strong> adresine e-posta gönderebilir veya demo talep formundan bize ulaşabilirsiniz.</p>
+      <p>Sorularınız için <strong>earzuhal.sozlesme@gmail.com</strong> adresine e-posta gönderebilir veya demo talep formundan bize ulaşabilirsiniz.</p>
       <p>Çalışma saatlerimiz: Pazartesi – Cuma 09:00 – 18:00 (TSİ).</p>
     </>
   ),
   api: (
     <>
-      <p>API dokümantasyonu yakında yayınlanacaktır. Erken erişim için <strong>api@earzuhal.com</strong> adresine yazabilirsiniz.</p>
+      <p>API dokümantasyonu yakında yayınlanacaktır. Erken erişim için <strong>earzuhal.sozlesme@gmail.com</strong> adresine yazabilirsiniz.</p>
     </>
   ),
   blog: (

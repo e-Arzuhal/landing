@@ -6,7 +6,6 @@ import LegalModal from './LegalModal'
 const navLinks = [
   { label: 'Ürünler',       href: '#features' },
   { label: 'Çözümler',      href: '#how-it-works' },
-  { label: 'Fiyatlandırma', href: '#pricing' },
   { label: 'Kurumsal',      href: '#demo' },
 ]
 
@@ -62,7 +61,7 @@ export default function Navbar() {
             onError={(e) => { e.currentTarget.style.display = 'none' }}
           />
           <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 18, color: 'var(--color-navy)', letterSpacing: '-0.01em' }}>
-            E-ARZUHAL
+            e-Arzuhal
           </span>
         </a>
 
@@ -123,7 +122,7 @@ export default function Navbar() {
               boxShadow: '0 2px 8px rgba(15,26,48,0.2)',
             }}
           >
-            Kayıt Ol
+            Kaydolun
           </motion.a>
         </div>
 
@@ -162,7 +161,7 @@ export default function Navbar() {
               ))}
               <div style={{ display: 'flex', gap: 10, marginTop: 12 }}>
                 <a href={APP_LOGIN_URL} style={{ flex: 1, textAlign: 'center', padding: '10px', borderRadius: 10, border: '1.5px solid var(--color-navy)', fontWeight: 600, color: 'var(--color-navy)', fontSize: 14 }}>Giriş Yap</a>
-                <a href={APP_REGISTER_URL} style={{ flex: 1, textAlign: 'center', padding: '10px', borderRadius: 10, background: 'var(--color-navy)', fontWeight: 600, color: '#fff', fontSize: 14 }}>Kayıt Ol</a>
+                <a href={APP_REGISTER_URL} style={{ flex: 1, textAlign: 'center', padding: '10px', borderRadius: 10, background: 'var(--color-navy)', fontWeight: 600, color: '#fff', fontSize: 14 }}>Kaydolun</a>
               </div>
             </div>
           </motion.div>

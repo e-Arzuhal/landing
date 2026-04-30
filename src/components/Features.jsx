@@ -142,12 +142,6 @@ export default function Features() {
               <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.65, fontSize: 15 }}>
                 {feat.description}
               </p>
-
-              {/* Arrow link */}
-              <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: 6, color: 'var(--color-navy)', fontWeight: 600, fontSize: 14 }}>
-                Daha fazla
-                <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </div>
             </motion.div>
           ))}
         </motion.div>

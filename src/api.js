@@ -1,20 +1,14 @@
 import { API_BASE_URL } from './config/urls'
 
-function friendly(err, fallback) {
-  const m = (err && err.message) || ''
-  if (/failed to fetch|networkerror|abort/i.test(m)) {
-    return 'Sunucuya şu anda ulaşılamıyor. Lütfen daha sonra tekrar deneyin.'
-  }
-  return m || fallback
-}
+const SERVER_UNAVAILABLE = 'Sunucuya şu anda ulaşılamıyor. Lütfen daha sonra tekrar deneyin.'
 
 export async function getLandingStats() {
   try {
     const res = await fetch(`${API_BASE_URL}/api/landing/stats`)
-    if (!res.ok) throw new Error('İstatistikler yüklenemedi.')
+    if (!res.ok) throw new Error(SERVER_UNAVAILABLE)
     return res.json()
   } catch (err) {
-    throw new Error(friendly(err, 'İstatistikler yüklenemedi.'))
+    throw new Error(SERVER_UNAVAILABLE)
   }
 }
 
@@ -25,12 +19,9 @@ export async function submitDemoRequest(data) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     })
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}))
-      throw new Error(err.message || err.detail || 'Demo talebi gönderilemedi.')
-    }
+    if (!res.ok) throw new Error(SERVER_UNAVAILABLE)
   } catch (err) {
-    throw new Error(friendly(err, 'Demo talebi gönderilemedi.'))
+    throw new Error(SERVER_UNAVAILABLE)
   }
 }
 
@@ -41,11 +32,8 @@ export async function subscribeNewsletter(email) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
     })
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}))
-      throw new Error(err.message || err.detail || 'Abonelik tamamlanamadı.')
-    }
+    if (!res.ok) throw new Error(SERVER_UNAVAILABLE)
   } catch (err) {
-    throw new Error(friendly(err, 'Abonelik tamamlanamadı.'))
+    throw new Error(SERVER_UNAVAILABLE)
   }
 }
