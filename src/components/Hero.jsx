@@ -161,7 +161,7 @@ export default function Hero() {
               alignItems: 'center',
             }}
           >
-            Kayıt Ol
+            Kaydolun
           </motion.a>
 
           <motion.button

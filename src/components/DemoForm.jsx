@@ -46,7 +46,7 @@ export default function DemoForm({ open, onClose }) {
       setForm({ fullName: '', email: '', company: '', phone: '' })
     } catch (err) {
       setStatus('error')
-      setErrorMsg(err.message)
+      setErrorMsg('Sunucuya şu anda ulaşılamıyor. Lütfen daha sonra tekrar deneyin.')
     }
   }
 
@@ -136,7 +136,7 @@ export default function DemoForm({ open, onClose }) {
 
                     {status === 'error' && (
                       <p style={{ color: '#C0392B', fontSize: 13, background: '#FEF2F2', padding: '10px 14px', borderRadius: 8, border: '1px solid #FECACA' }}>
-                        {errorMsg || 'Bir hata oluştu. Lütfen tekrar deneyin.'}
+                        {errorMsg || 'Sunucuya şu anda ulaşılamıyor. Lütfen daha sonra tekrar deneyin.'}
                       </p>
                     )}
 

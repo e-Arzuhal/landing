@@ -22,7 +22,7 @@ export default function CTA() {
       setEmail('')
     } catch (err) {
       setSubStatus('error')
-      setSubError(err?.message || 'Abonelik tamamlanamadı. Lütfen daha sonra tekrar deneyin.')
+      setSubError('Sunucuya şu anda ulaşılamıyor. Lütfen daha sonra tekrar deneyin.')
     }
   }
 
@@ -127,7 +127,7 @@ export default function CTA() {
                   display: 'inline-block',
                 }}
               >
-                Kayıt Ol
+                Kaydolun
               </motion.a>
             </div>
           </AnimatedSection>
@@ -182,7 +182,7 @@ export default function CTA() {
           </form>
           {subStatus === 'error' && (
             <p style={{ fontSize: 13, color: '#C0392B', maxWidth: 320 }}>
-              {subError || 'Abonelik tamamlanamadı. Lütfen daha sonra tekrar deneyin.'}
+              {subError || 'Sunucuya şu anda ulaşılamıyor. Lütfen daha sonra tekrar deneyin.'}
             </p>
           )}
         </div>
