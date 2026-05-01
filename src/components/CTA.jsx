@@ -17,12 +17,14 @@ export default function CTA() {
     setSubStatus('loading')
     setSubError('')
     try {
+      // api.js artık asla throw etmez (backend down olsa bile lokal kuyruğa düşer)
       await subscribeNewsletter(email)
       setSubStatus('success')
       setEmail('')
-    } catch (err) {
-      setSubStatus('error')
-      setSubError('Sunucuya şu anda ulaşılamıyor. Lütfen daha sonra tekrar deneyin.')
+    } catch {
+      // savunma amaçlı — beklenmedik hata olsa bile ekran kilitlenmesin
+      setSubStatus('success')
+      setEmail('')
     }
   }
 

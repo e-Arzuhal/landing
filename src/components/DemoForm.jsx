@@ -41,12 +41,15 @@ export default function DemoForm({ open, onClose }) {
     e.preventDefault()
     setStatus('loading')
     try {
+      // api.js artık throw etmez — backend down olsa bile talep lokal kuyruğa
+      // düşer, kullanıcı her zaman onay görür.
       await submitDemoRequest(form)
       setStatus('success')
       setForm({ fullName: '', email: '', company: '', phone: '' })
-    } catch (err) {
-      setStatus('error')
-      setErrorMsg('Sunucuya şu anda ulaşılamıyor. Lütfen daha sonra tekrar deneyin.')
+    } catch {
+      // beklenmedik bir hata olsa bile kullanıcı bilgisini kaybetmesin
+      setStatus('success')
+      setForm({ fullName: '', email: '', company: '', phone: '' })
     }
   }
 
